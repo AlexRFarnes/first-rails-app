@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> The first project for the Ruby on Rails and React Bootcamp.
 
-Things you may want to cover:
+## Table of contents
 
-* Ruby version
+  - [Table of contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+  - [General info](#general-info)
+  - [Screenshots](#screenshots)
+  - [Built with](#built-with)
+  - [Contact](#contact)
 
-* System dependencies
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy follow these steps:
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+- Ruby 2.7.3
+- Rails 6.1.6
+- PostgreSQL
 
-* Services (job queues, cache servers, search engines, etc.)
+- Clone the repo `git clone https://github.com/AlexRFarnes/first-rails-app.git`
+- Once you have the copy, run the following commands inside the directory:
+  1. Run `bundle install` in order to install all the project gems
+  2. Set up the username and password in the `config/database.yml` 
+  3. Run the following commands to create the databases, run the initial migrations and run the the seeds
+  4. Start the application with the command `rails server` or the shortcut `rails s`
+  5. Go to your local host `http://127.0.0.1:3000`
 
-* Deployment instructions
+## General info
 
-* ...
+A CRUD app made with Ruby on rails. It has two tables for products and books.
+
+
+## Screenshots
+
+![Screenshot]()
+
+
+## Built with
+
+- Ruby 2.7.6
+- Rails 6.1.6
+- PostgreSQL 14.3
+
+
+## Contact
+
+- GitHub [@AlexRFarnes](https://github.com/AlexRFarnes)
+- Twitter [@AlexRFarnes](https://twitter.com/alexrfarnes)
+- Linkedin [@AlexRFarnes](https://www.linkedin.com/in/alexrfarnes/)

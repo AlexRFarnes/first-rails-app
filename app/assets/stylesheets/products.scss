@@ -1,3 +1,17 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.table-products {
+    background: hsl(28, 44%, 49%);
+    color: white;
+    padding: 1rem;
+
+    a:link,a:visited {
+        color: white;
+    }
+
+    a:hover, a:active {
+        background-color: hsl(28, 44%, 79%);
+    }
+}

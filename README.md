@@ -38,7 +38,8 @@ A CRUD app made with Ruby on rails. It has two tables for products and books.
 
 ## Screenshots
 
-![Screenshot]()
+![Screenshot 2022-05-30 at 12-27-11 ProductsApp](https://user-images.githubusercontent.com/57517804/170922541-3b34b0ff-40cb-45e7-9917-81d83ffc061c.png)
+![Screenshot 2022-05-30 at 12-27-43 ProductsApp](https://user-images.githubusercontent.com/57517804/170922545-384b64be-ee77-4bfa-ba41-e535b67be3d1.png)
 
 
 ## Built with

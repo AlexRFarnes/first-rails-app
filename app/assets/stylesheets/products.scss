@@ -5,7 +5,11 @@
 .table-products {
     background: hsl(28, 44%, 49%);
     color: white;
-    padding: 1rem;
+    border-collapse: collapse;
+    
+    th, td {
+        padding: 0.5rem;
+    }
 
     a:link,a:visited {
         color: white;
@@ -13,5 +17,9 @@
 
     a:hover, a:active {
         background-color: hsl(28, 44%, 79%);
+    }
+
+    thead {
+        background: hsl(28, 44%, 32%);
     }
 }

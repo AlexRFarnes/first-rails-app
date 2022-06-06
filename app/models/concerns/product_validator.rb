@@ -5,9 +5,7 @@ class ProductValidator < ActiveModel::Validator
     end
 
     def validate_stock(record)
-        if !record.stock.is_a? Integer
-            record.errors.add(:stock, :invalid, message: "The stock value must be an integer.")
-        end
+        record.errors.add :stock, message: "El campo stock debe tener un valor mayor que 0" unless record.stock > 0
     end
 
 end

@@ -3,10 +3,12 @@
 # Table name: products
 #
 #  id          :bigint           not null, primary key
+#  code        :string
 #  description :string
 #  name        :string
 #  price       :decimal(10, 2)
 #  stock       :integer
+#  uuid        :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

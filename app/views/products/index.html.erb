@@ -5,6 +5,7 @@
 <table class="table-products">
   <thead>
     <tr>
+      <th>Code</th>
       <th>Name</th>
       <th>Description</th>
       <th>Stock</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= product.code %></td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.stock %></td>

@@ -18,6 +18,7 @@ class Product < ApplicationRecord
     after_save :notify_product_info
 
     before_update :out_of_stock, if: :stock_changed?
+    before_update :notify_different_price, if: :price_is_changed?
 
     def stock_changed?
         self.stock_was != self.stock && self.stock < 5
@@ -34,22 +35,43 @@ class Product < ApplicationRecord
 
     validate :description_length_validate
 
+    # Scopes (like class methods but shorter syntax)
+    scope :product_sum, -> { sum(:price) }
+    scope :desc_ordered_by_price, -> { order(price: :desc) }
+    scope :availables, -> { where('stock > ?', 0)}
+    scope :cheaper_products, -> (price) { where('price < ?', price) }
+
+    # Class Methods
+    def self.top_cheap_products(limit=nil)
+        order(price: :asc).limit(limit).select(:name, :price)
+    end
+
+    # Instance Methods
+
+    def notify_different_price
+        puts "- Product #{name}'s price changed -"
+    end
+
     def out_of_stock
-        puts "- Product #{self.name} stock decreased -"
+        puts "- Product #{self.name}'s stock decreased -"
     end
 
     def notify_product_saving
-        puts "- Product #{self.name} saved -"
+        puts "- Product #{self.name} was saved -"
     end
 
     def notify_product_info
-        puts "- Product #{self.name} stored in the warehouse -"
+        puts "- Product #{self.name} was stored in the warehouse -"
     end
 
     def description_length_validate
         unless description.length >= 10
             errors.add(:description, "Description must be at least 10 characters long")
         end
+    end
+
+    def price_is_changed?
+        price_was != price
     end
 
 end

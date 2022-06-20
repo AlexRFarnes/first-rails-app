@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_133512) do
+ActiveRecord::Schema.define(version: 2022_06_13_145243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2022_06_06_133512) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -34,6 +40,28 @@ ActiveRecord::Schema.define(version: 2022_06_06_133512) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "code"
     t.text "uuid"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "shopping_carts", force: :cascade do |t|
+    t.decimal "total", precision: 10, scale: 2
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active"
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.text "password"
+    t.text "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "products", "categories"
+  add_foreign_key "shopping_carts", "users"
 end
